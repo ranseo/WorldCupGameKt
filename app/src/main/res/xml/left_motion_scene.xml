@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/left_choice"
+        motion:constraintSetStart="@+id/base">
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/base"
+        motion:constraintSetStart="@+id/left_choice"
+        motion:autoTransition="animateToEnd">
+    </Transition>
+
+
+    <Transition
+        motion:constraintSetEnd="@+id/right_choice"
+        motion:constraintSetStart="@+id/base">
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/base"
+        motion:constraintSetStart="@+id/right_choice"
+        motion:autoTransition="animateToEnd">
+    </Transition>
+
+    <ConstraintSet android:id="@+id/base">
+        <Constraint
+            android:id="@+id/fm_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintRight_toLeftOf="@+id/guidline_motionLayout"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+        <PropertySet
+            motion:visibilityMode="ignore"
+            android:visibility="visible" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/fm_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toRightOf="@+id/guidline_motionLayout"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <PropertySet
+                motion:visibilityMode="ignore"
+                android:visibility="visible" />
+        </Constraint>
+    </ConstraintSet>
+
+
+
+    <ConstraintSet android:id="@+id/left_choice"
+        motion:deriveConstraintsFrom="@+id/base">
+        <Constraint
+            android:id="@+id/fm_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintRight_toRightOf="parent">
+            <PropertySet
+                android:visibility="visible" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/fm_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toRightOf="@+id/guidline_motionLayout"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <PropertySet
+                android:visibility="gone" />
+        </Constraint>
+    </ConstraintSet>
+
+
+
+    <ConstraintSet android:id="@+id/right_choice"
+        motion:deriveConstraintsFrom="@+id/base">
+        <Constraint
+            android:id="@+id/fm_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintRight_toLeftOf="@+id/guidline_motionLayout"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <PropertySet
+                android:visibility="gone" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/fm_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintRight_toRightOf="parent">
+            <PropertySet
+                android:visibility="visible" />
+        </Constraint>
+    </ConstraintSet>
+
+</MotionScene>
